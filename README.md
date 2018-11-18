@@ -24,5 +24,5 @@ Examples are in `examples/` folder.
 
 Best ones are: 
 
-`stack exec sierpinski.bf` - outputs sierpinski triangle
-`echo 0123456789 | stack exec pretty.bf` - pretty prints numbers
+* `stack exec sierpinski.bf` - outputs sierpinski triangle
+* `echo 0123456789 | stack exec pretty.bf` - pretty prints numbers
