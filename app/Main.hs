@@ -19,6 +19,6 @@ main = do
   case args of
     [] -> putStrLn "Usage: stack exec brainfsck-exe <file_with_code>"
     _ -> do
-      code <- B.readFile $ args !! 0
+      code <- B.readFile $ head args
       result <- blocks newBlocks $ parseText code
       B.putStrLn $ r result

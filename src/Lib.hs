@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 module Lib
   ( blocks
   ) where
@@ -22,9 +20,9 @@ blocks (Blocks h b r) (BFPut:es) =
 blocks (Blocks h b r) (BFGet:es) = do
   v <- getChar
   blocks (Blocks h (load b h $ ord v) r) es
-blocks current@(Blocks h b r) (BFLoop expr:es) = do
+blocks current@(Blocks h b r) (BFLoop expr:es) =
   if b !! h == 0
     then blocks current es
     else do
       newBlocks <- blocks current expr
-      blocks newBlocks ((BFLoop expr) : es)
+      blocks newBlocks (BFLoop expr : es)

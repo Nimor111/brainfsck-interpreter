@@ -6,8 +6,9 @@ import           Control.Applicative
 
 import           Data.Attoparsec.ByteString.Char8
 import qualified Data.ByteString.Char8            as B
-import           Data.Either                      (fromRight)
 
+import           Data.Either
+import           Data.Maybe
 import           Text.Brainfsck.Types
 
 goRight :: Parser BFExpr
@@ -53,4 +54,4 @@ loop = do
 parseText :: B.ByteString -> [BFExpr]
 parseText s =
   fromRight [] $
-  parseOnly (many' bfsymbol) $ B.filter ((flip elem) "+-,.<>[]") s
+  parseOnly (many' bfsymbol) $ B.filter (`elem` "+-,.<>[]") s
